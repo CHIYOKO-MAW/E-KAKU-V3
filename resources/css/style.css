@@ -1,0 +1,8 @@
+/* style.css */
+
+body { font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#F4F6F9; color:#222; }
+.navbar { box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+.bg-primary-custom { background-color:#004B8D !important; }
+.text-accent { color:#F9C80E; }
+.card { border-radius:8px; }
+.container .card { border: none; }
