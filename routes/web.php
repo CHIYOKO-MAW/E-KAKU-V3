@@ -11,6 +11,18 @@ use App\Http\Controllers\StatusPekerjaanController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerifikasiController;
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/force-seed', function () {
+    try {
+        echo "Starting seeding...<br>";
+        Artisan::call('db:seed', ['--force' => true]);
+        echo "Seeding completed!<br>";
+        echo "<pre>" . Artisan::output() . "</pre>";
+    } catch (\Exception $e) {
+        echo "Error: " . $e->getMessage();
+    }
+});
 
 Route::get('/', fn () => view('welcome'))->name('welcome');
 Route::get('/landing', fn () => redirect()->route('welcome'))->name('landing');
