@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        $this->command->info('Seeding database started...');
         $demoUser = User::updateOrCreate(
             ['email' => 'user@ekaku.test'],
             [
@@ -57,5 +58,6 @@ class DatabaseSeeder extends Seeder
         if ($seedDemo) {
             $this->call(DemoDataSeeder::class);
         }
+        $this->command->info('Seeding database completed successfully!');
     }
 }
