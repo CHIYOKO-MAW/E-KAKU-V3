@@ -1,0 +1,14 @@
+[phases.setup]
+nixPkgs = ["php83", "php83Extensions.gd", "php83Extensions.mbstring", "php83Extensions.pdo_mysql", "php83Extensions.fileinfo", "php83Extensions.zip", "php83Extensions.openssl", "nodejs_20"]
+
+[phases.install]
+cmds = ["composer install --optimize-autoloader --no-dev", "npm ci"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[phases.postbuild]
+cmds = ["php artisan storage:link"]
+
+[phases.deploy]
+cmds = ["php artisan migrate --force && /start-container.sh"]
